@@ -1,15 +1,24 @@
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw
 import os
+
+# Print current working directory
 print("Current working directory:", os.getcwd())
 
-def create_good_morning_image():
+def create_simple_image():
+    # Create a blank image with a solid color background
     img = Image.new('RGB', (800, 600), color=(255, 223, 186))
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype("arial.ttf", 40)
-    message = "Good Morning, Beautiful!"
+
+    # Draw a simple rectangle or text
+    draw.rectangle([50, 50, 750, 550], outline="purple", width=5)
     
-    text_width, text_height = draw.textsize(message, font=font)
-    position = ((img.width - text_width) // 2, (img.height - text_height) // 2)
-    
-    draw.text(position, message, fill=(139, 0, 139), font=font)
-    img.save("good_morning_image.png")
+    # Save the image in the same directory as the script
+    save_path = "simple_image.png"
+    try:
+        img.save(save_path)
+        print(f"Image saved successfully at {os.path.abspath(save_path)}")
+    except Exception as e:
+        print(f"Error saving image: {e}")
+
+if __name__ == "__main__":
+    create_simple_image()
