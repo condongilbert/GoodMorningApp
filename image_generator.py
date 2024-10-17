@@ -1,4 +1,6 @@
 from PIL import Image, ImageDraw, ImageFont
+import os
+print("Current working directory:", os.getcwd())
 
 def create_good_morning_image():
     img = Image.new('RGB', (800, 600), color=(255, 223, 186))
