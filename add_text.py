@@ -8,7 +8,7 @@ def add_text_to_image(image_path, text, output_path):
     draw = ImageDraw.Draw(image)
 
     # Load a font (use a TTF font you have or download one)
-    font = ImageFont.truetype("arial.ttf", 50)
+    font = ImageFont.truetype("arial.ttf", 20)
 
     # Define the position and text color
     text_position = (50, 50)
