@@ -1,32 +1,26 @@
-from PIL import Image, ImageDraw, ImageFont
-import os
+from diffusers import StableDiffusionPipeline
+import torch
+from PIL import Image
 
-# Print current working directory
-print("Current working directory:", os.getcwd())
+def create_good_morning_image():
+    # Load the Stable Diffusion pipeline
+    model_id = "CompVis/stable-diffusion-v1-4"
+    pipe = StableDiffusionPipeline.from_pretrained(model_id)
+    pipe = pipe.to("cuda") if torch.cuda.is_available() else pipe.to("cpu")
 
-def create_simple_image():
-    # Create a blank image with a solid color background
-    img = Image.new('RGB', (800, 600), color=(255, 223, 186))
-    draw = ImageDraw.Draw(img)
+    # Define the prompt for generating the image
+    prompt = "A beautiful sunrise with soft clouds and a serene landscape, with the words 'Good Morning, Beautiful!' overlayed in elegant font."
+    
+    # Generate an image based on the prompt
+    image = pipe(prompt).images[0]  # Generate the image
 
-    message = "Good Morning, Beautiful!"
-    font = ImageFont.truetype("arial.ttf", 40)
-    text_bbox = draw.textbbox((0, 0), message, font=font)
-    text_width, text_height = text_bbox[2] - text_bbox[0], text_bbox[3] - text_bbox[1]
-    
-    # Calculate the position to center the text
-    position = ((img.width - text_width) // 2, (img.height - text_height) // 2)
-    
-    # Draw the text
-    draw.text(position, message, fill=(139, 0, 139), font=font)
-    
-    # Save the image in the same directory as the script
-    save_path = "simple_image.png"
+    # Save the generated image
+    save_path = "good_morning_image.png"
     try:
-        img.save(save_path)
-        print(f"Image saved successfully at {os.path.abspath(save_path)}")
+        image.save(save_path)
+        print(f"Image saved successfully at {save_path}")
     except Exception as e:
         print(f"Error saving image: {e}")
 
 if __name__ == "__main__":
-    create_simple_image()
+    create_good_morning_image()
