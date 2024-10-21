@@ -22,4 +22,4 @@ def add_text_to_image(image_path, text, output_path):
     print(f"Image saved with text at {output_path}")
 
 # Example usage
-add_text_to_image("good_morning_image.png", "Good Morning, Beautiful!", "good_morning_with_text.png")
+add_text_to_image("good_morning_image.png", "Get some rest today beautiful!!", "good_morning_with_text.png")
