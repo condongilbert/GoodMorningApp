@@ -33,4 +33,4 @@ def send_email_with_image(image_path):
     server.quit()
 
 # Call the function with the path to your generated image
-send_email_with_image("generated_image.png")
+send_email_with_image("generated_image_with_text.png")
