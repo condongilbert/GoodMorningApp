@@ -9,13 +9,13 @@ def create_good_morning_image():
     pipe = pipe.to("cuda") if torch.cuda.is_available() else pipe.to("cpu")
 
     # Define the prompt for generating the image
-    prompt = "A beautiful morning image showing a serene lake with two otters holding hands"
+    prompt = "two cute otters floating through spacetime holding hands"
     
     # Generate an image based on the prompt
     image = pipe(prompt).images[0]  # Generate the image
 
     # Save the generated image
-    save_path = "good_morning_image.png"
+    save_path = "good_afternoon_image.png"
     try:
         image.save(save_path)
         print(f"Image saved successfully at {save_path}")
