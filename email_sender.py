@@ -22,7 +22,7 @@ def send_email_with_image(image_path):
     msg.attach(MIMEText(body, 'plain'))
     
     # Attach image
-    image_path = "good_morning_image.png"
+    image_path = "good_afternoon_image.png"
     with open(image_path, 'rb') as img_file:
         img = MIMEImage(img_file.read())
         img.add_header('Content-Disposition', f'attachment; filename="{image_path}"')
