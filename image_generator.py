@@ -9,7 +9,7 @@ def create_good_morning_image():
     pipe = pipe.to("cuda") if torch.cuda.is_available() else pipe.to("cpu")
 
     # Define the prompt for generating the image
-    prompt = "two cute otters floating through spacetime holding hands"
+    prompt = "serene teak otters apology love indonesia"
     
     # Generate an image based on the prompt
     image = pipe(prompt).images[0]  # Generate the image
