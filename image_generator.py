@@ -9,7 +9,7 @@ def create_good_morning_image():
     pipe = pipe.to("cuda") if torch.cuda.is_available() else pipe.to("cpu")
 
     # Define the prompt for generating the image
-    prompt = "A gentle, affectionate afternoon scene: two beavers sitting by a shimmering lake with soft afternoon sunlight casting a warm glow. The beavers sit side-by-side, one leaning gently on the other as they gaze across the lake, with trees and gentle hills in the distance.  "
+    prompt = "A warm, affectionate image for my girlfriend who loves books, spicy food, animals, kindness, and evergreen trees.  "
     
     # Generate an image based on the prompt
     image = pipe(prompt).images[0]  # Generate the image
