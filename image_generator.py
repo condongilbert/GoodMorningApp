@@ -9,7 +9,7 @@ def create_good_morning_image():
     pipe = pipe.to("cuda") if torch.cuda.is_available() else pipe.to("cpu")
 
     # Define the prompt for generating the image
-    prompt = "A warm, affectionate image for my girlfriend who loves books, spicy food, animals, kindness, and evergreen trees.  "
+    prompt = "warm, affectionate image for person who loves books, spicy food, dogs, otters, kindness, and evergreen trees batik beaches.  "
     
     # Generate an image based on the prompt
     image = pipe(prompt).images[0]  # Generate the image
